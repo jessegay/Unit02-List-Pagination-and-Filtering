@@ -7,8 +7,8 @@ Pro Tip: Log out the variable storing the list to ensure it equals the list of l
 Create a variable to store the number of items to show on each “page”, which for this project, is 10.
 
 // Global variables*/
-let studentList = document.getElementsByClassName('student-item cf'); // I think this will return the items rather than the ul.
-const itemsPerPage = 10
+let studentList = document.getElementByClassName('student-item cf'); // I think this will return the items rather than the ul.
+const itemsPerPage = 10;
 
 /*
 Create a function to hide all the students except for the ten you want displayed on a given page.
@@ -18,6 +18,7 @@ The page parameter to represent the page number that you’ll pass in as an argu
 
 https://www.geeksforgeeks.org/hide-or-show-elements-in-html-using-display-property/
 */
+
 function hide (list, page) {
     if criteria are met 
         student <li> style.display = ''; //I think this will default to the style specified in the CSS
