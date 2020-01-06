@@ -37,7 +37,7 @@ const itemsPerPage = 10;
        "invoke" the function 
 ***/
 
-function showPage(list, page) {
+const showPage = (list, page) => {
    let startIndex = (page * itemsPerPage) - itemsPerPage;
    let endIndex = page * itemsPerPage;
    for (let i = 0; i < list.length; i ++) {
@@ -49,7 +49,7 @@ function showPage(list, page) {
    }
 }
 
-showPage(list, 6);
+showPage(list, 1);
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons.
