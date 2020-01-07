@@ -55,7 +55,14 @@ showPage(list, 1);
    functionality to the pagination buttons.
 ***/
 
+const appendPageLinks = (list) => {
+   const pagesNeeded = list.length/itemsPerPage;
+   // is this a good way to create and assign className at the same time?
+   const paginationDiv = document.createElement("div").className = "pagination";
 
+
+
+}
 
 
 
