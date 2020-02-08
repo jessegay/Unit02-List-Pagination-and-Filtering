@@ -49,7 +49,7 @@ const showPage = (list, page) => {
    }
 }
 
-// showPage(list, 6);
+ showPage(list, 6);
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons.
@@ -59,11 +59,26 @@ const appendPageLinks = (list) => {
    const pagesNeeded = list.length/itemsPerPage;
    const paginationDiv = document.createElement("div");
    paginationDiv.className = "pagination";
+   const pageDiv = document.getElementsByClassName("page");
+   pageDiv[0].appendChild(paginationDiv);
+   const paginationLinks = document.createElement("ul");
+   paginationDiv.appendChild(paginationLinks);
+   for (let i = 0; i < pagesNeeded; i ++) {
+      const pageLi = document.createElement("li");
+      const pageA = document.createElement("a");
+      pageLi.innerHTML = pageA;
+      
 
-
+   }
 
 }
 
-console.log(appendPageLinks.paginationDiv)
+// https://www.w3schools.com/jsref/met_node_appendchild.asp
+
+// .innerHTML vs. create textTextNode then append to node (as in example above)?
+
+// https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view
+
+console.log(document.paginationDiv)
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
