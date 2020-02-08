@@ -49,7 +49,7 @@ const showPage = (list, page) => {
    }
 }
 
-showPage(list, 1);
+// showPage(list, 6);
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons.
@@ -57,13 +57,13 @@ showPage(list, 1);
 
 const appendPageLinks = (list) => {
    const pagesNeeded = list.length/itemsPerPage;
-   // is this a good way to create and assign className at the same time?
-   const paginationDiv = document.createElement("div").className = "pagination";
+   const paginationDiv = document.createElement("div");
+   paginationDiv.className = "pagination";
 
 
 
 }
 
-
+console.log(appendPageLinks.paginationDiv)
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
