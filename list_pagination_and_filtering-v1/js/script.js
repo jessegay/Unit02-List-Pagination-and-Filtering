@@ -49,29 +49,40 @@ const showPage = (list, page) => {
    }
 }
 
- showPage(list, 6);
+ // test to see if showPage() works. It does, until I added appendPageLinks(), which doesn't work.
+ // showPage(list, 1);
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons.
 ***/
 
 const appendPageLinks = (list) => {
+   // ​Determine how many pages are needed for the list by dividing the
+​   //total number of list items by the max number of items per page
    const pagesNeeded = list.length/itemsPerPage;
+   // Create a d​iv,​ give it the “pagination” class, and append it to the .page div
    const paginationDiv = document.createElement("div");
    paginationDiv.className = "pagination";
-   const pageDiv = document.getElementsByClassName("page");
-   pageDiv[0].appendChild(paginationDiv);
+   const pageDiv = document.querySelector(".page");
+   pageDiv.appendChild(paginationDiv);
+   // Add a u​l​ to the “pagination” div to store the pagination links
    const paginationLinks = document.createElement("ul");
    paginationDiv.appendChild(paginationLinks);
+   //for​ every page, add l​i​ and ​a​ tags with the page number text
    for (let i = 0; i < pagesNeeded; i ++) {
       const pageLi = document.createElement("li");
       const pageA = document.createElement("a");
-      pageLi.innerHTML = pageA;
-      
+      pageA.text = i;
+      pageLi.innerText = pageA; // or should I use appendChild()?
+      //Add an event listener to each a​ ​ tag. When they are clicked call the showPage function to display the appropriate page
+      pageA.addEventListener('click', showPage(list, i));
+      // Append <li> to <ul>
+      paginationLinks.appendChild(pageLi);
 
    }
 
 }
+
 
 // https://www.w3schools.com/jsref/met_node_appendchild.asp
 
@@ -79,6 +90,6 @@ const appendPageLinks = (list) => {
 
 // https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view
 
-console.log(document.paginationDiv)
+
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
