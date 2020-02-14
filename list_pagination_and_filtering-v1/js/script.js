@@ -19,7 +19,7 @@ FSJS project 2 - List Filter and Pagination
 
 let list = document.getElementsByClassName('student-item cf'); 
 const itemsPerPage = 10;
-
+//console.log(list.length);
 //console.log(list[2].innerHTML);
 
 /*** 
@@ -48,18 +48,16 @@ const showPage = (list, page) => {
       }
    }
 }
-
+//console.log(list.length/itemsPerPage);
  // test to see if showPage() works. It does, until I added appendPageLinks(), which doesn't work.
- // showPage(list, 1);
+showPage(list, 1);
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons.
 ***/
 
 const appendPageLinks = (list) => {
-   // ​Determine how many pages are needed for the list by dividing the
-​   //total number of list items by the max number of items per page
-   const pagesNeeded = list.length/itemsPerPage;
+   const pagesNeeded = list.length / itemsPerPage;
    // Create a d​iv,​ give it the “pagination” class, and append it to the .page div
    const paginationDiv = document.createElement("div");
    paginationDiv.className = "pagination";
@@ -73,7 +71,7 @@ const appendPageLinks = (list) => {
       const pageLi = document.createElement("li");
       const pageA = document.createElement("a");
       pageA.text = i;
-      pageLi.innerText = pageA; // or should I use appendChild()?
+      pageLi.appendChild(pageA); // or should I use appendChild()?
       //Add an event listener to each a​ ​ tag. When they are clicked call the showPage function to display the appropriate page
       pageA.addEventListener('click', showPage(list, i));
       // Append <li> to <ul>
@@ -82,6 +80,8 @@ const appendPageLinks = (list) => {
    }
 
 }
+
+appendPageLinks();
 
 
 // https://www.w3schools.com/jsref/met_node_appendchild.asp
