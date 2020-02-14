@@ -81,7 +81,7 @@ const appendPageLinks = (list) => {
 
 }
 
-appendPageLinks();
+appendPageLinks(list);
 
 
 // https://www.w3schools.com/jsref/met_node_appendchild.asp
