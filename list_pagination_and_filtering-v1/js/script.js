@@ -83,6 +83,11 @@ const appendPageLinks = (list) => {
 
    }
 
+   //6. FIXME: Loop over pagination links to remove active class from all links
+
+   //7. FIXME: Add the active class to the link that was just clicked. You can identify that clicked link using ​event.target
+
+
 }
 
 appendPageLinks(list);
