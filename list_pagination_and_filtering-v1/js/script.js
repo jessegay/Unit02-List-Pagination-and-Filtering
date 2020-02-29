@@ -49,8 +49,9 @@ const showPage = (list, page) => {
    }
 }
 //console.log(list.length/itemsPerPage);
- // test to see if showPage() works. It does, until I added appendPageLinks(), which doesn't work.
-showPage(list, 1);
+ // test to see if showPage() works. 
+ // FIXME: How do I make it so page loads only first 10 without manually calling showPage(list, 1)?
+   showPage(list, 1);
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons.
@@ -67,13 +68,16 @@ const appendPageLinks = (list) => {
    const paginationLinks = document.createElement("ul");
    paginationDiv.appendChild(paginationLinks);
    //for​ every page, add l​i​ and ​a​ tags with the page number text
-   for (let i = 0; i < pagesNeeded; i ++) {
+   for (let i = 1; i <= pagesNeeded +1; i ++) {
       const pageLi = document.createElement("li");
       const pageA = document.createElement("a");
       pageA.text = i;
-      pageLi.appendChild(pageA); // or should I use appendChild()?
+      pageLi.appendChild(pageA); // 
       //Add an event listener to each a​ ​ tag. When they are clicked call the showPage function to display the appropriate page
-      pageA.addEventListener('click', showPage(list, i));
+      pageA.addEventListener("click", () => {
+         showPage(list, i);
+         }
+      );
       // Append <li> to <ul>
       paginationLinks.appendChild(pageLi);
 
