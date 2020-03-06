@@ -69,9 +69,9 @@ const appendPageLinks = (list) => {
       const pageLi = document.createElement("li");
       const pageA = document.createElement("a");
       pageA.text = i;
-      // pageA.href = i; // FIXME: This breaks the app. Why do it? TH instructions say to add it. Incorrect instructions?
+      pageA.href = '#'; //Why?
       pageLi.appendChild(pageA); 
-      //Add an event listener to each a​ ​ tag. When they are clicked call the showPage function to display the appropriate page
+      //Add an event listener to each A​ ​ tag. When they are clicked call the showPage function to display the appropriate page
       pageA.addEventListener("click", () => {
          showPage(list, i);
       //6. Loop over pagination links to remove active class from all anchors
