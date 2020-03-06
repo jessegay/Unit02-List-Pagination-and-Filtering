@@ -50,8 +50,8 @@ const showPage = (list, page) => {
 }
 //console.log(list.length/itemsPerPage);
  // test to see if showPage() works. 
- // FIXME: How do I make it so page loads only first 10 without manually calling showPage(list, 1)?
-   showPage(list, 1);
+showPage(list, 1);
+
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons.
@@ -72,26 +72,30 @@ const appendPageLinks = (list) => {
       const pageLi = document.createElement("li");
       const pageA = document.createElement("a");
       pageA.text = i;
-      pageLi.appendChild(pageA); // 
+      // pageA.href = i; // FIXME: This breaks the app. Why do it? TH instructions say to add it. Incorrect instructions?
+      pageLi.appendChild(pageA); 
       //Add an event listener to each a​ ​ tag. When they are clicked call the showPage function to display the appropriate page
       pageA.addEventListener("click", () => {
          showPage(list, i);
+      //6. FIXME: Loop over pagination links to remove active class from all ANCHORS NOT LINKS
+         for (let i = 0; i <= pagesNeeded; i++) {
+            const linksCollection = paginationLinks.getElementsByTagName('li');
+            console.log(linksCollection[i]);
+            linksCollection[i].classList.remove('active');
+         }
+      //7. Add the active class to the link that was just clicked. You can identify that clicked link using ​event.target   
+         event.target.classList.add('active');
          }
       );
       // Append <li> to <ul>
-      paginationLinks.appendChild(pageLi);
-
+      paginationLinks.appendChild(pageLi);  
    }
-
-   //6. FIXME: Loop over pagination links to remove active class from all links
-
-   //7. FIXME: Add the active class to the link that was just clicked. You can identify that clicked link using ​event.target
-
-
+   
 }
 
 appendPageLinks(list);
-
+const pageATags = document.getElementsByTagName('a');
+pageATags[0].classList.add('active');
 
 // https://www.w3schools.com/jsref/met_node_appendchild.asp
 
