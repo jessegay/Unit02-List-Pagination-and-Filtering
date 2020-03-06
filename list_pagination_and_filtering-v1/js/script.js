@@ -19,8 +19,6 @@ FSJS project 2 - List Filter and Pagination
 
 let list = document.getElementsByClassName('student-item cf'); 
 const itemsPerPage = 10;
-//console.log(list.length);
-//console.log(list[2].innerHTML);
 
 /*** 
    Create the `showPage` function to hide all of the items in the 
@@ -48,9 +46,8 @@ const showPage = (list, page) => {
       }
    }
 }
-//console.log(list.length/itemsPerPage);
- // test to see if showPage() works. 
-showPage(list, 1);
+
+
 
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
@@ -77,11 +74,10 @@ const appendPageLinks = (list) => {
       //Add an event listener to each a​ ​ tag. When they are clicked call the showPage function to display the appropriate page
       pageA.addEventListener("click", () => {
          showPage(list, i);
-      //6. FIXME: Loop over pagination links to remove active class from all ANCHORS NOT LINKS
+      //6. Loop over pagination links to remove active class from all anchors
          for (let i = 0; i <= pagesNeeded; i++) {
-            const linksCollection = paginationLinks.getElementsByTagName('li');
-            console.log(linksCollection[i]);
-            linksCollection[i].classList.remove('active');
+            const anchors = paginationLinks.getElementsByTagName('a');
+            anchors[i].classList.remove('active');
          }
       //7. Add the active class to the link that was just clicked. You can identify that clicked link using ​event.target   
          event.target.classList.add('active');
@@ -93,15 +89,13 @@ const appendPageLinks = (list) => {
    
 }
 
+// Show first page
+showPage(list, 1);
+// Add page links
 appendPageLinks(list);
+// Add active class to first link upon inital load
 const pageATags = document.getElementsByTagName('a');
 pageATags[0].classList.add('active');
-
-// https://www.w3schools.com/jsref/met_node_appendchild.asp
-
-// .innerHTML vs. create textTextNode then append to node (as in example above)?
-
-// https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view
 
 
 
