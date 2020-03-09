@@ -23,7 +23,7 @@ const showPage = (list, page) => {
    }
 }
 
-// appendPageLinks() dynamically adds pagination links based on the number of students.
+// appendPageLinks() dynamically adds pagination links based on number of students.
 
 const appendPageLinks = (list) => {
    const pagesNeeded = list.length / itemsPerPage;
